@@ -7,7 +7,7 @@ function App() {
     const [roomTypes, setRoomTypes] = useState([]);
     const [reservations, setReservations] = useState([]);
     
-    // New entities state
+   
     const [newGuest, setNewGuest] = useState({ Name: '', PhoneNumber: '', EmailAddress: '' });
     const [newRoomType, setNewRoomType] = useState({ RoomTypeName: '', Amenities: '' });
     const [newRoom, setNewRoom] = useState({ RoomTypeID: '' });
@@ -28,7 +28,7 @@ function App() {
             .then(data => setReservations(data));
     }, []);
 
-    // Handlers for form submissions
+    
     const handleAddGuest = (e) => {
         e.preventDefault();
         fetch('http://localhost:5000/guests', {
