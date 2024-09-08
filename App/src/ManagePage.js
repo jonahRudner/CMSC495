@@ -1,18 +1,25 @@
+/*
+This page contains the code used for displaying the manage item page.  
+This page allows users to create reservations, guests, rooms, roomtypes, etc
+*/
 import React, { useEffect, useState } from 'react';
 import './App.css';
 
 function App() {
+
+    //using usestate to make changes to each type
     const [guests, setGuests] = useState([]);
     const [rooms, setRooms] = useState([]);
     const [roomTypes, setRoomTypes] = useState([]);
     const [reservations, setReservations] = useState([]);
     
-   
+   //template types for adding guests, rooms, roomtypes, and reservatios
     const [newGuest, setNewGuest] = useState({ Name: '', PhoneNumber: '', EmailAddress: '' });
     const [newRoomType, setNewRoomType] = useState({ RoomTypeName: '', Amenities: '' });
     const [newRoom, setNewRoom] = useState({ RoomTypeID: '' });
     const [newReservation, setNewReservation] = useState({ RoomID: '', GuestID: '', StartDate: '', EndDate: '' });
 
+    //using changed data to send new items back to the database
     useEffect(() => {
         fetch('http://localhost:5000/guests')
             .then(response => response.json())
@@ -28,7 +35,7 @@ function App() {
             .then(data => setReservations(data));
     }, []);
 
-    
+    //handling adding a guest
     const handleAddGuest = (e) => {
         e.preventDefault();
         fetch('http://localhost:5000/guests', {
@@ -39,7 +46,7 @@ function App() {
         .then(response => response.json())
         .then(data => setGuests([...guests, { ...newGuest, GuestID: data.GuestID }]));
     };
-
+    //handling adding a room type
     const handleAddRoomType = (e) => {
         e.preventDefault();
         fetch('http://localhost:5000/roomtypes', {
@@ -50,7 +57,7 @@ function App() {
         .then(response => response.json())
         .then(data => setRoomTypes([...roomTypes, { ...newRoomType, RoomTypeID: data.RoomTypeID }]));
     };
-
+    //handling adding a room
     const handleAddRoom = (e) => {
         e.preventDefault();
         fetch('http://localhost:5000/rooms', {
@@ -61,7 +68,7 @@ function App() {
         .then(response => response.json())
         .then(data => setRooms([...rooms, { ...newRoom, RoomID: data.RoomID }]));
     };
-
+    //handling adding a reservation
     const handleAddReservation = (e) => {
         e.preventDefault();
         fetch('http://localhost:5000/reservations', {
@@ -72,7 +79,8 @@ function App() {
         .then(response => response.json())
         .then(data => setReservations([...reservations, { ...newReservation, ReservationID: data.ReservationID }]));
     };
-
+    
+    //return the HTML for displaying the manage page
     return (
         <div className="App">
             <h1>Hotel Management</h1>
