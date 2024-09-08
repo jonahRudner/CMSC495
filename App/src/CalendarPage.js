@@ -1,10 +1,15 @@
+/*Calendar page which uses react big calender to display reservations for the hotel in a by-date format.  
+When a user click on any reservation, they can edit the reservation at the bottom of the screen
+*/
 import React, { useEffect, useState } from 'react';
 import { Calendar, momentLocalizer } from 'react-big-calendar';
 import moment from 'moment';
 import 'react-big-calendar/lib/css/react-big-calendar.css';
 
+//Using the react moment library, we can make the dates appear on teh calendar 
 const localizer = momentLocalizer(moment);
 
+//Using the react useEffect library, we can change the state of items based on user actions
 function CalendarPage() {
     const [reservations, setReservations] = useState([]);
     const [selectedReservation, setSelectedReservation] = useState(null);
@@ -18,6 +23,7 @@ function CalendarPage() {
         EndDate: ''
     });
 
+    //setting up the fetching of the information needed from the database to display the correct info in the calendar
     useEffect(() => {
         fetch('http://localhost:5000/reservations')
             .then(response => response.json())
@@ -45,7 +51,8 @@ function CalendarPage() {
             .then(response => response.json())
             .then(data => setRoomTypes(data));
     }, []);
-
+    
+//setting up what happens if a user clicks on a calendar item
     const handleSelectEvent = (event) => {
         setSelectedReservation(event);
         setEditedReservation({
@@ -55,7 +62,7 @@ function CalendarPage() {
             EndDate: event.EndDate.split('T')[0] 
         });
     };
-
+//setting up what happens if a user edits a reservation (sending the data back to the db)
     const handleEditReservation = (e) => {
         e.preventDefault();
         fetch(`http://localhost:5000/reservations/${selectedReservation.id}`, {
@@ -73,7 +80,7 @@ function CalendarPage() {
             setSelectedReservation(null);
         });
     };
-
+//setting up what happens if a user deletes a reservation (sending the data back to the db)
     const handleDeleteReservation = () => {
         fetch(`http://localhost:5000/reservations/${selectedReservation.id}`, {
             method: 'DELETE',
@@ -86,7 +93,8 @@ function CalendarPage() {
             setSelectedReservation(null);
         });
     };
-
+    
+//returning HTML for displaying the page
     return (
         <div>
             <h1>Reservations</h1>
