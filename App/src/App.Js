@@ -1,9 +1,15 @@
+/*
+App.js includes the main router to route users to the appropriate pages, as well as the imports for those pages.
+It also contains the import for the App.css page which will format the pages for astethic purposes 
+*/
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 import ManagePage from './ManagePage';
 import CalendarPage from './CalendarPage';
 import './App.css';
 
+
+//html for routing page
 function App() {
     return (
         <Router>
