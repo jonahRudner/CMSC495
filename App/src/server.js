@@ -14,7 +14,7 @@ app.use(express.json());
 const db = mysql.createConnection({
     host: 'localhost',
     user: 'root',
-    password: 'PWD'//CHANGE TO YOUR DATABASE PASSWORD,
+    password: 'PWD', //CHANGE TO YOUR DATABASE PASSWORD
     database: 'HotelManagement'
 });
 
