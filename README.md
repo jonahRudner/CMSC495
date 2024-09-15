@@ -1,10 +1,12 @@
-Instructions to run software:
+Instructions to run software (Ubuntu):
 
 Install Node, NPM, Axios, and React
 
-Install mySQL
+Install mySQL using ‘sudo apt install mysql-server’
 
-Create a new database called HotelManagement
+Create a new database called HotelManagement using ‘sudo mysql’ and then ‘CREATE DATABASE HotelManagement;’
+
+Connect to the database in vscode
 
 Run the DB.sql code from the repository to create the tables needed for the program
 
