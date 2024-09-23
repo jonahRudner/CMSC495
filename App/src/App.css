@@ -1,1 +1,70 @@
-/*TODO: add css for formatting application*/
+body {
+  background-color: #5b5be7;
+  color: #3b3434;
+}
+
+.App {
+  padding: 20px;
+  background-color: #d8e7d9d8;
+}
+
+h1, h2 {
+  text-align: center;
+  color: #2c3e50;
+}
+
+h1 {
+  font-size: 2.5rem;
+  color: #3395f7;
+  margin-bottom: 20px;
+}
+
+h2 {
+  font-size: 1.8rem;
+  margin-top: 30px;
+  margin-bottom: 15px;
+}
+
+form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+input, select, button {
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 1rem;
+  
+}
+
+
+input, select {
+  flex: 1 1 200px;
+  min-width: 200px;
+  margin: 5px 0;
+}
+
+button {
+  background-color: #3498db;
+  color: rgb(0, 0, 0);
+  cursor: grab;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #b1bec7;
+}
+
+
+
+li {
+  padding: 10px;
+  background-color: #ecf0f1;
+  display: flex;
+}
+
+
+
