@@ -1,1 +1,87 @@
-/*TODO: add css for formatting application*/
+/* App.css */
+
+body {
+  background-color: #f0e68c; /* Soft yellow background */
+  color: #4b3c3c; /* Dark brown text color */
+}
+
+.App {
+  padding: 30px;
+  background-color: #b3e0ff; /* Light blue background */
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+h1 {
+  font-size: 2.5rem; /* Increased size */
+  color: #2c3e50; /* Dark gray header color */
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+h2 {
+  font-size: 1.8rem; /* Increased size */
+  margin-top: 25px;
+  text-align: center;
+}
+
+nav {
+  margin-bottom: 25px;
+}
+
+nav ul {
+  list-style-type: none;
+  padding: 0;
+  display: flex;
+  justify-content: space-around; /* Space out nav items */
+}
+
+nav li {
+  margin: 0 20px;
+}
+
+nav a {
+  color: #ffffff; /* White text for links */
+  text-decoration: none;
+  padding: 12px 18px; /* Increased padding */
+  background-color: #6b5b95; /* Purple background for nav links */
+  border-radius: 8px;
+  transition: background-color 0.3s;
+}
+
+nav a:hover {
+  background-color: #5c4a7d; /* Darker shade on hover */
+}
+
+form {
+  display: flex;
+  flex-direction: column; /* Stack form elements */
+  align-items: center;
+  gap: 15px; /* Increased space between elements */
+}
+
+input, select, button {
+  padding: 12px; /* Increased padding */
+  border-radius: 6px;
+  border: 1px solid #aaa; /* Light border */
+  width: 100%; /* Full width */
+  max-width: 320px; /* Limit width */
+}
+
+button {
+  background-color: #ff6f61; /* Coral button color */
+  color: white;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #e65c50; /* Darker button on hover */
+}
+
+li {
+  padding: 12px;
+  background-color: #f9c9c9; /* Light pink for list items */
+  border-radius: 6px;
+  margin-bottom: 15px; /* Increased space between items */
+}
+
