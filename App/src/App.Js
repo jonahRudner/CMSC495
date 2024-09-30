@@ -7,12 +7,14 @@ import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 import ManagePage from './ManagePage';
 import CalendarPage from './CalendarPage';
 import './App.css';
+import { Helmet } from "react-helmet";
 
 
 //html for routing page
 function App() {
     return (
         <Router>
+            <Helmet><title>Hotel Management</title></Helmet>
             <div className="App">
                 <nav>
                     <ul>
