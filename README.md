@@ -23,3 +23,8 @@ Run ‘sudo systemctl start mysql’ to start your sql server in linux
 CD to the src folder, and then in terminal run ‘Node server.js’ to start the server
 
 In a new terminal, CD to the app, and run ‘npm start’
+Created RESTful APIs for guests, rooms, reservations, and room types.
+
+Used SQL JOINs to combine data from multiple tables to ensure relational accuracy.
+
+Used Postman to validate endpoints and test API behaviors manually.
