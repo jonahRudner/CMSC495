@@ -25,6 +25,13 @@ db.connect(err => {
 });
 
 //code for getting reservation data
+Each API response includes:
+Reservation ID
+Guest Name
+Room ID
+Booking Start and End Dates
+Room Type
+Amenitie
 app.get('/reservations', (req, res) => {
     const sql = `
         SELECT Reservations.ReservationID, Guests.Name, Rooms.RoomID, Reservations.StartDate, Reservations.EndDate, RoomTypes.RoomTypeName, RoomTypes.Amenities
@@ -48,7 +55,9 @@ app.get('/guests', (req, res) => {
     });
 });
 
-//code for getting room data
+//code for getting room data 
+This GET /reservations endpoint pulls all active reservation records.
+    It performs a SQL JOIN across four tables — Reservations, Guests, Rooms, and RoomTypes — to return full booking details.”
 app.get('/rooms', (req, res) => {
     const sql = `
         SELECT Rooms.RoomID, RoomTypes.RoomTypeName, RoomTypes.Amenities
@@ -137,3 +146,28 @@ app.delete('/reservations/:id', (req, res) => {
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+“If I send a GET request to /reservations using Postman, here’s a typical response I’d get:”
+
+json
+Copy
+Edit
+[
+  {
+    "ReservationID": 1,
+    "Name": "John Doe",
+    "RoomID": 101,
+    "StartDate": "2025-07-01",
+    "EndDate": "2025-07-05",
+    "RoomTypeName": "Deluxe",
+    "Amenities": "Wi-Fi, Breakfast, Ocean View"
+  },
+  {
+    "ReservationID": 2,
+    "Name": "Jane Smith",
+    "RoomID": 102,
+    "StartDate": "2025-07-03",
+    "EndDate": "2025-07-06",
+    "RoomTypeName": "Suite",
+    "Amenities": "Wi-Fi, Breakfast, Balcony"
+  }
+]
